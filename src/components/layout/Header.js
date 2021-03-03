@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import Container from "components/Container";
 
-const Header = () => {
+const Header = ({ toggleMenu, setToggleMenu }) => {
   return (
     <CHeader>
       <Container flex>
@@ -34,6 +34,20 @@ const Header = () => {
             </Link>
           </div>
         </div>
+        <div className="mobileMenu">
+          <Link to="/" className="p-ai-center">
+            <img src="/logo192.png" alt="logo" style={{ height: "3rem" }}></img>
+            <h3>Yoomy</h3>
+          </Link>
+          <div className="p-d-flex">
+            <Button
+              className="p-button-text"
+              onClick={() => setToggleMenu(!toggleMenu)}
+            >
+              <i className="pi pi-bars" style={{ fontSize: "1.55rem" }} />
+            </Button>
+          </div>
+        </div>
       </Container>
     </CHeader>
   );
@@ -45,25 +59,38 @@ const CHeader = styled.header`
   height: 80px;
   width: 100%;
   margin-bottom: 2rem;
-  background: #f1f5f9;
+  background: ${({ theme }) => theme.col.brand2};
 
   h3 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-left: 0.5rem;
-    color: #6c8cc4;
+    color: ${({ theme }) => theme.col.brand};
   }
 
   .menu {
+    @media (max-width: 650px) {
+      display: none;
+    }
+
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    align-items: center;
+  }
+  a {
+    display: flex;
+  }
 
-    a {
+  .mobileMenu {
+    @media (max-width: 650px) {
       display: flex;
     }
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
   }
 `;

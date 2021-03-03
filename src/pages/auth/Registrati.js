@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 
 const Registrati = () => {
   const { register, errors, handleSubmit } = useForm();
-  const { user, signup, error } = useAuth();
+  const { user, loading, signup, error } = useAuth();
   const history = useHistory();
   const [acceptTerms, setAcceptTerms] = useState(false);
 
@@ -148,7 +148,12 @@ const Registrati = () => {
             )}
           </div>
 
-          <Button className="p-button-lg" type="submit">
+          <Button
+            className="p-button-lg"
+            disabled={loading}
+            type="submit"
+            icon={loading ? `pi pi-spin pi-spinner p-mr-3` : ``}
+          >
             Registrati
           </Button>
           <small className="p-mt-3">

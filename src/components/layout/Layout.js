@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
@@ -12,6 +13,7 @@ import Container from "components/Container";
 const Layout = ({ children, title }) => {
   const { user } = useAuth();
   const history = useHistory();
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   if (!user) {
     history.push("/accedi");
@@ -32,10 +34,14 @@ const Layout = ({ children, title }) => {
             <title>{title ? `${title} | Yoomy` : `Yoomy`}</title>
           </Helmet>
 
-          <Header />
+          <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+
+          <Navigation toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
+
           <main>
             <Container>{children}</Container>
           </main>
+
           <Footer />
         </CLayout>
       )}

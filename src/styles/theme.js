@@ -6,6 +6,8 @@ const theme = {
   col: {
     // Matching logo color
     brand: "#6D8DC5",
+    // Header color
+    brand2: "#f1f5f9",
 
     // Matching PrimeReact palette
     primary: "#2A92F0",

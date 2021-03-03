@@ -6,11 +6,11 @@ const IstruttoriGrid = ({ istruttori }) => {
     <CGrid>
       {istruttori.map((istruttore) => (
         <div key={istruttore.id} className="card">
-          <Link to={`/app/istruttore/${istruttore.id}`}>
+          <Link to={`/istruttore/${istruttore.id}`}>
             <img src={istruttore.picture} alt="profile" />
           </Link>
           <div className="card-content">
-            <Link to={`/app/istruttore/${istruttore.id}`}>
+            <Link to={`/istruttore/${istruttore.id}`}>
               <h3>
                 {istruttore.name} {istruttore.surname}
               </h3>

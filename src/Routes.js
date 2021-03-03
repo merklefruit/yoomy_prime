@@ -4,7 +4,8 @@ import Accedi from "pages/auth/Accedi";
 import Registrati from "pages/auth/Registrati";
 
 import Home from "pages/Home";
-import Istruttori from "pages/Istruttori";
+import Istruttori from "pages/istruttori/Istruttori";
+import Istruttore from "pages/istruttori/Istruttore";
 import Calendario from "pages/Calendario";
 import Profilo from "pages/Profilo";
 
@@ -17,6 +18,7 @@ const Routes = () => {
 
         <Route exact path="/" component={Home} />
         <Route exact path="/istruttori" component={Istruttori} />
+        <Route exact path="/istruttore/:id" component={Istruttore} />
         <Route exact path="/calendario" component={Calendario} />
         <Route exact path="/profilo" component={Profilo} />
 

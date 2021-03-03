@@ -12,7 +12,7 @@ import { useAuth } from "providers/auth";
 
 const Accedi = () => {
   const { register, errors, handleSubmit } = useForm();
-  const { user, login, error } = useAuth();
+  const { user, loading, login, error } = useAuth();
   const history = useHistory();
 
   if (user) {
@@ -84,7 +84,12 @@ const Accedi = () => {
             )}
           </div>
 
-          <Button className="p-button-lg" type="submit">
+          <Button
+            className="p-button-lg"
+            disabled={loading}
+            type="submit"
+            icon={loading ? `pi pi-spin pi-spinner p-mr-3` : ``}
+          >
             Accedi
           </Button>
           <small className="p-mt-3">

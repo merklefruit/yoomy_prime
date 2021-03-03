@@ -9,6 +9,7 @@ function AuthProvider({ children }) {
   const localUserJson = localStorage.getItem("user");
   const localUser = localUserJson && JSON.parse(localUserJson);
   const [user, setUser] = useState(localUser);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
@@ -34,8 +35,11 @@ function AuthProvider({ children }) {
 
   // provider actions
   // args: (endpoint, body, action, errorCallback, successCallback)
-  const userAction = (endpoint, body, action) =>
-    postRequest(endpoint, body, action, showErrorMsg, showSuccessMsg);
+  const userAction = async (endpoint, body, action) => {
+    setLoading(true);
+    await postRequest(endpoint, body, action, showErrorMsg, showSuccessMsg);
+    setLoading(false);
+  };
 
   const signup = (user) => userAction("/users/register", user, saveUser);
   const login = (user) => userAction("/users/authenticate", user, saveUser);
@@ -45,6 +49,7 @@ function AuthProvider({ children }) {
     <AuthContext.Provider
       value={{
         user,
+        loading,
         error,
         success,
         signup,
