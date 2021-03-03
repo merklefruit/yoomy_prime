@@ -20,13 +20,16 @@ const Calendario = () => {
             itemTemplate={EventoTemplate}
             rows={5}
             inline
-            scrollHeight="500px"
+            scrollHeight="350px"
           />
         </CCalendario>
       ) : (
-        <CSkeletons>
-          <Skeleton height="200px"></Skeleton>
-        </CSkeletons>
+        !events &&
+        !error && (
+          <CSkeletons>
+            <Skeleton height="350px"></Skeleton>
+          </CSkeletons>
+        )
       )}
       {error && <InternalError error={error} />}
     </Layout>

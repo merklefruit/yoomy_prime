@@ -22,7 +22,7 @@ const InternalError = ({ error }) => {
 export default InternalError;
 
 const CIE = styled.div`
-  background-color: ${({ theme }) => theme.col.warn};
+  background-color: ${({ theme }) => theme.col.amber.e200};
   padding: 1rem;
   p {
     margin: 0 0 1rem 0;

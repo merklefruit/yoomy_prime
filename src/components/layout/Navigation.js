@@ -22,9 +22,9 @@ const Navigation = ({ toggleMenu, setToggleMenu }) => {
           <i className="pi pi-calendar" />
           <p>Calendario</p>
         </Link>
-        <Link to="/profilo">
+        <Link to="/account">
           <i className="pi pi-user" />
-          <p>Profilo</p>
+          <p>Account</p>
         </Link>
       </CSidebar>
     </CNAV>

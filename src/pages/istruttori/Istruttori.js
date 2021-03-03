@@ -20,10 +20,10 @@ const Istruttori = () => {
         </p>
 
         <div id="grid">
-          {istruttori ? (
+          {istruttori && !error ? (
             <IstruttoriGrid istruttori={istruttori} />
           ) : (
-            <IstruttoriSkeleton />
+            !istruttori && !error && <IstruttoriSkeleton />
           )}
           {error && !istruttori && <InternalError error={error} />}
         </div>

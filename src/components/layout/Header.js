@@ -24,7 +24,7 @@ const Header = ({ toggleMenu, setToggleMenu }) => {
             <Link to="/calendario">
               <Button label="Calendario" className="p-button-link p-mr-2" />
             </Link>
-            <Link to="/profilo">
+            <Link to="/account">
               <Avatar
                 icon="pi pi-user"
                 size="large"
