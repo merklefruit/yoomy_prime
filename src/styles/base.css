@@ -1,0 +1,35 @@
+* {
+  text-decoration: none;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.35;
+}

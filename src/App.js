@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { SWRConfig } from "swr";
+import axios from "axios";
+
+import PrimeReact, { locale, addLocale } from "primereact/api";
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+
+import locale_it from "utils/locale_it";
+import Routes from "src/Routes";
+
+// Providers
+import { DataProvider } from "providers/data";
+import { AuthProvider } from "providers/auth";
+import WithTheme from "providers/theme";
+
+// Axios base API url
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 function App() {
+  // PrimeReact active ripple effect
+  PrimeReact.ripple = true;
+
+  addLocale("it", locale_it);
+  locale("it");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DataProvider>
+        <AuthProvider>
+          <WithTheme>
+            <SWRConfig
+              value={{
+                fetcher: (url) => axios(url).then((r) => r.data),
+                dedupingInterval: 5000,
+              }}
+            >
+              <Routes />
+            </SWRConfig>
+          </WithTheme>
+        </AuthProvider>
+      </DataProvider>
+    </>
   );
 }
 
