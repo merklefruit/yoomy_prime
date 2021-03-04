@@ -1,14 +1,24 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { useAuth } from "providers/auth";
 
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
-import { ConfirmPopup } from "primereact/confirmpopup";
+import { confirmDialog } from "primereact/confirmdialog";
 
 const Generale = () => {
   const { logout, user } = useAuth();
-  const [logoutVisible, setLogoutVisible] = useState(false);
+
+  const confirmLogout = () => {
+    confirmDialog({
+      message: "Sei sicuro di voler uscire?",
+      header: "Logout",
+      icon: "pi pi-exclamation-triangle",
+      acceptLabel: "Sì, esci",
+      rejectLabel: "Annulla",
+      acceptClassName: "p-button-danger",
+      accept: () => logout(),
+    });
+  };
 
   return (
     <CGenerale>
@@ -34,21 +44,10 @@ const Generale = () => {
 
       <Card className="p-my-3">
         <h3>Logout</h3>
-        <div id="confirm-logout" className="p-mt-4">
-          <ConfirmPopup
-            target={document.getElementById("logout")}
-            visible={logoutVisible}
-            onHide={() => setLogoutVisible(false)}
-            message="Sei sicuro di voler uscire?"
-            icon="pi pi-exclamation-triangle"
-            accept={async () => await logout()}
-            acceptLabel="Sì, esci"
-            reject={() => setLogoutVisible(false)}
-          />
+        <div id="logout" className="p-mt-4">
           <Button
-            id="logout"
-            onClick={() => setLogoutVisible(true)}
             label="Logout"
+            onClick={confirmLogout}
             className="p-button-outlined p-button-danger"
           ></Button>
         </div>
