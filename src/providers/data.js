@@ -34,5 +34,5 @@ export const DataProvider = ({ children }) => (
   </StateContext.Provider>
 );
 
-const useGlobalContext = () => useContext(StateContext);
-export default useGlobalContext;
+const useDataContext = () => useContext(StateContext);
+export default useDataContext;

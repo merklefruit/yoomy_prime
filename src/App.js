@@ -13,6 +13,7 @@ import Routes from "src/Routes";
 // Providers
 import { DataProvider } from "providers/data";
 import { AuthProvider } from "providers/auth";
+import { CommonProvider } from "providers/common";
 import WithTheme from "providers/theme";
 
 // Axios base API url
@@ -28,18 +29,20 @@ function App() {
   return (
     <>
       <DataProvider>
-        <AuthProvider>
-          <WithTheme>
-            <SWRConfig
-              value={{
-                fetcher: (url) => axios(url).then((r) => r.data),
-                dedupingInterval: 5000,
-              }}
-            >
-              <Routes />
-            </SWRConfig>
-          </WithTheme>
-        </AuthProvider>
+        <CommonProvider>
+          <AuthProvider>
+            <WithTheme>
+              <SWRConfig
+                value={{
+                  fetcher: (url) => axios(url).then((r) => r.data),
+                  dedupingInterval: 5000,
+                }}
+              >
+                <Routes />
+              </SWRConfig>
+            </WithTheme>
+          </AuthProvider>
+        </CommonProvider>
       </DataProvider>
     </>
   );

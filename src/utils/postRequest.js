@@ -33,6 +33,6 @@ export default async function postRequest(
       res.data.message ? res.data.message : "Operazione svolta con successo"
     );
   } catch (err) {
-    errorCallback(err.response.data.message);
+    errorCallback(err.response?.data?.message);
   }
 }

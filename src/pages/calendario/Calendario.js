@@ -2,11 +2,9 @@ import styled from "styled-components";
 import useSWR from "swr";
 import Layout from "components/layout/Layout";
 import InternalError from "components/InternalError";
-import ToolBar from "components/calendario/ToolBar";
-import EventoTemplate from "components/calendario/EventoTemplate";
+import EventoMobile from "components/calendario/EventoMobile";
 
 import { Skeleton } from "primereact/skeleton";
-import { DataScroller } from "primereact/datascroller";
 
 const Calendario = () => {
   const { data: events, error } = useSWR("/events/alltime");
@@ -15,17 +13,17 @@ const Calendario = () => {
     <Layout title="Calendario">
       <h2>I prossimi eventi</h2>
 
-      {/* <ToolBar /> */}
-
       {events && !error ? (
         <CCalendario>
-          <DataScroller
-            value={events}
-            itemTemplate={EventoTemplate}
-            rows={5}
-            inline
-            scrollHeight="350px"
-          />
+          <div className="desktop-grid">
+            {/* //TODO: ADD DESKTOP EVENT VIEW UI (needs design) */}
+          </div>
+          <div className="mobile-grid">
+            {/* //TODO: USE A DATA LOADER INSTEAD OF A PLAIN GRID. */}
+            {events.map((event) => (
+              <EventoMobile event={event} key={event.id} />
+            ))}
+          </div>
         </CCalendario>
       ) : (
         !events &&
@@ -41,6 +39,29 @@ const Calendario = () => {
 };
 export default Calendario;
 
-const CCalendario = styled.div``;
+const CCalendario = styled.div`
+  margin-bottom: 4rem;
+
+  .desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+
+    @media (max-width: 805px) {
+      grid-template-columns: 350px;
+    }
+  }
+
+  .mobile-grid {
+    display: none;
+
+    @media (max-width: 436px) {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+  }
+`;
 
 const CSkeletons = styled.div``;

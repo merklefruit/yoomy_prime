@@ -8,6 +8,8 @@ import { Helmet } from "react-helmet";
 import Header from "components/layout/Header";
 import Footer from "components/layout/Footer";
 import Navigation from "components/layout/Navigation";
+import BetaBanner from "components/layout/BetaBanner";
+import CookieBanner from "components/layout/CookieBanner";
 import Container from "components/Container";
 
 const Layout = ({ children, title }) => {
@@ -18,8 +20,6 @@ const Layout = ({ children, title }) => {
   if (!user) {
     history.push("/accedi");
   }
-
-  // Set auth token globally
   if (user?.token) {
     axios.defaults.headers.common.Authorization = `Bearer ${user.token}`;
   } else {
@@ -33,6 +33,9 @@ const Layout = ({ children, title }) => {
           <Helmet>
             <title>{title ? `${title} | Yoomy` : `Yoomy`}</title>
           </Helmet>
+
+          <BetaBanner />
+          <CookieBanner />
 
           <Header toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
 
