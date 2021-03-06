@@ -58,7 +58,6 @@ const CCalendario = styled.div`
     @media (max-width: 436px) {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
       width: 100%;
     }
   }

@@ -10,7 +10,7 @@ import Generale from "components/account/Generale";
 import Password from "components/account/Password";
 import Notifiche from "components/account/Notifiche";
 import Pagamenti from "components/account/Pagamenti";
-import Registro from "components/account/Registro";
+import Supporto from "components/account/Supporto";
 
 const Account = () => {
   const [tab, setTab] = useState(0);
@@ -19,7 +19,7 @@ const Account = () => {
     { label: "Password", value: 1 },
     { label: "Notifiche", value: 2 },
     { label: "Pagamenti", value: 3 },
-    { label: "Registro", value: 4 },
+    { label: "Supporto", value: 4 },
   ];
 
   return (
@@ -37,10 +37,18 @@ const Account = () => {
             <TabPanel header="Generale">
               <Generale />
             </TabPanel>
-            <TabPanel header="Password"></TabPanel>
-            <TabPanel header="Notifiche"></TabPanel>
-            <TabPanel header="Pagamenti"></TabPanel>
-            <TabPanel header="Registro"></TabPanel>
+            <TabPanel header="Password">
+              <Password />
+            </TabPanel>
+            <TabPanel header="Notifiche">
+              <Notifiche />
+            </TabPanel>
+            <TabPanel header="Pagamenti">
+              <Pagamenti />
+            </TabPanel>
+            <TabPanel header="Supporto">
+              <Supporto />
+            </TabPanel>
           </TabView>
         </div>
 
@@ -56,7 +64,7 @@ const Account = () => {
           {tab === 1 && <Password />}
           {tab === 2 && <Notifiche />}
           {tab === 3 && <Pagamenti />}
-          {tab === 4 && <Registro />}
+          {tab === 4 && <Supporto />}
         </div>
       </CAccount>
     </Layout>

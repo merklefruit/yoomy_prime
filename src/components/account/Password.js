@@ -1,5 +1,5 @@
 const Passowrd = () => {
-  return <div></div>;
+  return <div>coming soon</div>;
 };
 
 export default Passowrd;

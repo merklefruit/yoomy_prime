@@ -12,7 +12,7 @@ const InternalError = ({ error }) => {
       </p>
       <small>Riferimento errore: {error?.message || "generic"}</small>
 
-      <Link to="/supporto">
+      <Link to="/account">
         <Button label="Contattaci" className="p-d-block p-mt-4 p-button-info" />
       </Link>
     </CIE>

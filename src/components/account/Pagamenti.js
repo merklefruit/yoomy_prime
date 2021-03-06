@@ -1,4 +1,4 @@
 const Pagamenti = () => {
-  return <div></div>;
+  return <div>coming soon</div>;
 };
 export default Pagamenti;
