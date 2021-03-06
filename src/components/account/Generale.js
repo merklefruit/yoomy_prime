@@ -39,7 +39,7 @@ const Generale = () => {
           <h4>Email:</h4>
           <p>{user.email}</p>
         </div>
-        <Button label="Modifica" className="p-mt-3" />
+        <Button label="Modifica" icon="pi pi-user-edit" className="p-mt-3" />
       </Card>
 
       <Card className="p-my-3">

@@ -2,12 +2,12 @@
 // changes rarily and that doesn't relate to API data calls.
 
 import { createContext, useContext, useReducer } from "react";
-
 const StateContext = createContext();
 
 // Types
 export const SHOW_COOKIE_BANNER = "SHOW_COOKIE_BANNER";
 export const SHOW_BETA_BANNER = "SHOW_BETA_BANNER";
+export const SHOW_STARTING_GUIDE = "SHOW_STARTING_GUIDE";
 
 // Initial state
 export const initialState = {
@@ -19,6 +19,10 @@ export const initialState = {
     localStorage.getItem("show_cookie_banner") === null
       ? true
       : localStorage.getItem("show_cookie_banner"),
+  show_starting_guide:
+    localStorage.getItem("show_starting_guide") === null
+      ? true
+      : localStorage.getItem("show_starting_guide"),
 };
 
 const reducer = (state, action) => {
@@ -37,6 +41,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         show_beta_banner: action.show_beta_banner,
+      };
+
+    //? Controls whether to show or hide the starting guide
+    case SHOW_STARTING_GUIDE:
+      localStorage.setItem("show_starting_guide", action.show_starting_guide);
+      return {
+        ...state,
+        show_starting_guide: action.show_starting_guide,
       };
 
     default:

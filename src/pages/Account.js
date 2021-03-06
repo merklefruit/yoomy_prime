@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Layout from "components/layout/Layout";
 
 import { TabView, TabPanel } from "primereact/tabview";
+import { Divider } from "primereact/divider";
 import { Dropdown } from "primereact/dropdown";
 
 // Settings sections
@@ -60,6 +61,7 @@ const Account = () => {
             onChange={(e) => setTab(e.value)}
             placeholder={tabs[0].label}
           />
+          <Divider />
           {tab === 0 && <Generale />}
           {tab === 1 && <Password />}
           {tab === 2 && <Notifiche />}

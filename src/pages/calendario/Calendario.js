@@ -5,6 +5,7 @@ import InternalError from "components/InternalError";
 import EventoMobile from "components/calendario/EventoMobile";
 
 import { Skeleton } from "primereact/skeleton";
+import { ScrollTop } from "primereact/scrolltop";
 
 const Calendario = () => {
   const { data: events, error } = useSWR("/events/alltime");
@@ -19,7 +20,7 @@ const Calendario = () => {
             {/* //TODO: ADD DESKTOP EVENT VIEW UI (needs design) */}
           </div>
           <div className="mobile-grid">
-            {/* //TODO: USE A DATA LOADER INSTEAD OF A PLAIN GRID. */}
+            <ScrollTop />
             {events.map((event) => (
               <EventoMobile event={event} key={event.id} />
             ))}

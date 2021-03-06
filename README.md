@@ -1,4 +1,13 @@
-# todo
+# Yoomy Prime
+
+## Struttura
+
+- App: app.yoomy.com
+- Marketing: yoomy.com
+- Community: community.yoomy.com
+- API: api.yoomy.com
+
+## todo
 
 - /supporto
 - /calendario
@@ -6,7 +15,8 @@
 - / dashboard UI
 - Collegare form di supporto a netlify
 
-- /termini termini e condizioni -> relegato al sito marketing
+- /termini-e-condizioni -> relegato al sito marketing
+- /guida-per-iniziare -> relegato al sito marketing
 
 ##  BUGS
 
