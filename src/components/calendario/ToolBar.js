@@ -1,21 +1,41 @@
+import { useState } from "react";
 import { Toolbar } from "primereact/toolbar";
 import { Button } from "primereact/button";
-import { SplitButton } from "primereact/splitbutton";
-
-const left = (
-  <>
-    <Button label="Iscriviti" className="p-button-success" icon="pi pi-plus" />
-    <Button label="Aggiungi" className="p-button-secondary p-ml-2" />
-  </>
-);
-
-const right = (
-  <>
-    <SplitButton label="Altro" icon="pi pi-cog" />
-  </>
-);
+import { MultiSelect } from "primereact/multiselect";
+import { Calendar } from "primereact/calendar";
 
 const ToolBar = () => {
-  return <Toolbar left={left} right={right}></Toolbar>;
+  const [date, setDate] = useState(null);
+
+  const reset = () => {
+    setDate(null);
+  };
+
+  return (
+    <>
+      <Toolbar
+        left={
+          <>
+            <MultiSelect placeholder="Qualsiasi corso" className="p-mr-3" />
+            <MultiSelect
+              placeholder="Qualsiasi istruttore"
+              className="p-mr-3"
+            />
+            <Calendar
+              placeholder="Qualsiasi data"
+              value={date}
+              onChange={(e) => setDate(e.value)}
+              className="p-mr-3"
+            />
+            <Button
+              label="Reset"
+              className={`p-button-secondary ${date === null && "p-disabled"}`}
+              onClick={reset}
+            />
+          </>
+        }
+      ></Toolbar>
+    </>
+  );
 };
 export default ToolBar;

@@ -25,7 +25,7 @@ const EventoMobile = ({ event }) => {
             />
 
             {/* EXPANDED CARD TEACHER CHIP */}
-            <div layoutId="chip">
+            <motion.div layoutId="chip">
               <Link to={`/istruttore/${event.teacher.id}`}>
                 <Chip
                   className="chip"
@@ -33,7 +33,7 @@ const EventoMobile = ({ event }) => {
                   label={`${event.teacher.name} ${event.teacher.surname}`}
                 />
               </Link>
-            </div>
+            </motion.div>
 
             {/* EXPANDED CARD DATE (RIGHT CORNER) */}
             <motion.div className="date" layoutId="date">
@@ -93,7 +93,7 @@ const EventoMobile = ({ event }) => {
             />
 
             {/* CLOSED CARD TEACHER CHIP */}
-            <div layoutId="chip">
+            <motion.div layoutId="chip">
               <Link to={`/istruttore/${event.teacher.id}`}>
                 <Chip
                   className="chip"
@@ -101,7 +101,7 @@ const EventoMobile = ({ event }) => {
                   label={`${event.teacher.name} ${event.teacher.surname}`}
                 />
               </Link>
-            </div>
+            </motion.div>
 
             {/* CLOSED CARD DATE (RIGHT CORNER) */}
             <motion.div className="date" layoutId="date">
@@ -146,6 +146,7 @@ const CET = styled.div`
 
 const ClosedCard = styled(motion.div)`
   position: relative;
+  cursor: pointer;
 
   .card-background {
     object-fit: cover;

@@ -2,6 +2,7 @@ import Layout from "components/layout/Layout";
 import styled from "styled-components";
 import { useAuth } from "providers/auth";
 import GuidaPerIniziare from "components/home/GuidaPerIniziare";
+import { CorsiInEvidenza } from "../components/home/CorsiInEvidenza";
 
 const Home = () => {
   const { user } = useAuth();
@@ -11,13 +12,14 @@ const Home = () => {
       <CHome>
         <h2>La tua home</h2>
         <p>
-          Ciao <b>{user?.name}</b>! Dai un'occhiata ai corsi che abbiamo
+          Ciao <b>{user?.name}</b>! Dai un'occhiata a quello che abbiamo
           preparato per te.
         </p>
 
         <GuidaPerIniziare />
 
         <h3>Corsi in evidenza</h3>
+        <CorsiInEvidenza />
 
         <h3>Lezioni On Demand</h3>
 
@@ -27,7 +29,7 @@ const Home = () => {
 
         <h3>Dalla Community</h3>
 
-        <h3>Asana dell'alfabeto</h3>
+        <h3>Asana dell'alfabeto (?)</h3>
       </CHome>
     </Layout>
   );
